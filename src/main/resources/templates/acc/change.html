@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/acc/index ::dynamic(~{::main})}">
+<main>
+	<form th:action="@{/changePW}" modelAttribute="acc" method="post"
+		class="col-sm-8 col-sm-offset-2">
+		<div class="panel-heading text-center">CHANGE PASSWORD</div>
+		<i class="pull-left text-danger" th:text="${message}"></i>
+		<br>
+		<div class="form-group">
+			<div>
+				Username : <input name="username" th:value="${#request.remoteUser}"
+					type="hidden" th:utext="${#request.remoteUser}">
+			</div>
+		</div>
+		<div class="form-group">
+			<input type="password" name="confim" id="password" tabindex="2"
+				class="form-control" placeholder="password">
+		</div>
+		<div class="form-group">
+			<input type="password" name="pswnew" id="password"
+				tabindex="2" class="form-control" placeholder="confim-password">
+		</div>
+		<div class="form-group">
+			<input type="password" name="confim-pswnew" id="password"
+				tabindex="2" class="form-control" placeholder="confim-password">
+		</div>
+		<div class="form-group">
+			<div class="row">
+				<div class="col-sm-7 col-sm-offset-3">
+					<input type="submit" name="login-submit" id="login-submit"
+						tabindex="4" class="form-control btn btn-login" value="Change">
+				</div>
+			</div>
+			</div>
+		</div>
+	</form>
+</main>
+</html>

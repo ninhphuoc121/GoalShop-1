@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+	th:replace="~{layout/index :: dynamic(~{::main})}">
+<body>
+    <main>
+    	<div th:replace="~{/cart/view :: shopping_cart}"></div>
+    	<div class="panel panel-primary ">
+			<div class="table-main table-responsive">
+				<table class="table">
+					<thead>
+						<tr>
+							<th style="text-align: center;">ORDER PURCHASING</th>
+
+						</tr>
+					</thead>
+				</table>
+			</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="form-group col-sm-6">
+						<div>Purchaser :</div>
+						<div class="form-control" id="username">[[${#request.remoteUser}]]</div>
+					</div>
+					<div class="form-group col-sm-6">
+						<div>Order Date :</div>
+						<div class="form-control">{{order.createDate | date : 'dd-MM-yyyy'}}</div>
+					</div>
+					<div class="form-group col-sm-6">
+						<div>Phone :</div>
+						<input ng-model="order.phone" class="form-control">
+
+					</div>
+					<div class="form-group col-sm-6">
+						
+						<input ng-model="order.status"  class="form-control" type="hidden">
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-sm-12">
+						<div>Shipping Address :</div>
+						<textarea ng-model="order.address" class="form-control"></textarea>
+					</div>
+				</div>
+			</div>
+			<div class="panel-footer ">
+				<div class="col-12 d-flex shopping-box">
+					<a  ng-click="order.purchase()" class="ml-auto btn hvr-hover" style="color: white;">Purchase</a> 
+				</div>
+				<br>
+			</div>
+		</div>
+    </main>
+</body>
+
+</html>

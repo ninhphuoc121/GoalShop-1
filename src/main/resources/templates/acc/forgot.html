@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/acc/index ::dynamic(~{::main})}">
+<main>
+	<form th:action="@{/forgotPW}" method="post"
+		class="col-sm-8 col-sm-offset-2">
+		<div class="panel-heading text-center">FORGOT PASSWORD</div>
+		<i class="pull-left text-danger" th:text="${message}"></i>
+		<div class="form-group">
+			<input type="text" name="name" id="username1" tabindex="1"
+				class="form-control" placeholder="Username" value="">
+		</div>
+		<div class="form-group">
+			<input type="email" name="email" id="email" tabindex="2"
+				class="form-control" placeholder="confim your email ? ">
+		</div>
+		<div class="form-group">
+			<div class="row">
+				<div class=" col-sm-8">
+					<div class="text-center">
+						<a href="#" tabindex="5" class="forgot-password"> * Email
+							không truy cập được ? </a>
+					</div>
+				</div>
+				<div class=" col-sm-2">
+					<div class="text-center">
+						<a th:href="@{/security/login/form}" class="Login">* Login</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+		<div class="form-group">
+			<div class="row">
+				<div class="col-sm-7 col-sm-offset-3">
+					<input type="submit" name="login-submit" id="login-submit"
+						tabindex="4" class="form-control btn btn-login" value="Send Email">
+				</div>
+			</div>
+		</div>
+		</div>
+	</form>
+</main>
+</html>

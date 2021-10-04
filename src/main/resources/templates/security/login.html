@@ -1,0 +1,49 @@
+ 	<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/acc/index ::dynamic(~{::main})}">
+<main>
+	<form th:action="@{/security/login}" method="post"
+		class="col-sm-8 col-sm-offset-2">
+
+		<div class="panel-heading text-center">Login</div>
+		<i class="pull-left text-danger" th:text="${message}"></i>
+		<div class="form-group">
+			<input type="text" name="username" class="form-control"
+				placeholder="Username">
+		</div>
+		<div class="form-group">
+			<input type="password" name="password" class="form-control"
+				placeholder="Password">
+		</div>
+		<div class="form-group text-center">
+			<input type="checkbox" class="" name="remeber-me" id="remember">
+			<label for="remember"> Remember Me</label>
+		</div>
+		<div class="form-group">
+			<div class="row">
+				<div class=" col-sm-8">
+					<div class="text-center">
+						<a th:href="@{/home/forgot}" class="forgot-password">* Forgot
+							Password?</a>
+					</div>
+				</div>
+				<div class=" col-sm-2">
+					<div class="text-center">
+						<a th:href="@{/home/signup}" class="register">* SIGNUP NOW</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="row">
+				<div class="col-sm-7 col-sm-offset-3">
+					<input type="submit" class="form-control btn btn-login"
+						value="Login">
+				</div>
+			</div>
+		</div>
+	</form>
+
+
+</main>
+</html>

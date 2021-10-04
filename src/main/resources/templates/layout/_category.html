@@ -1,0 +1,71 @@
+
+
+<div xmlns:th="http://www.thymeleaf.org" id="category-menu"
+	class="navbar collapse in mb_40" aria-expanded="true" role="button">
+	<div class="nav-responsive">
+		<div class="heading-part">
+			<h2 class="main_title">Top category</h2>
+		</div>
+		<ul class="nav  main-navigation collapse in">
+			<li th:each="c:${cates}" >
+				<a th:href="@{|/product/list?cid=${c.category_id}|}">[[${c.name}]]</a></li>
+
+		</ul>
+	</div>
+</div>
+<div class="filter left-sidebar-widget mb_50">
+	<div class="heading-part mtb_20 ">
+		<h2 class="main_title">Refinr Search</h2>
+	</div>
+	<div class="filter-block">
+		<p>
+			<label for="amount">Price range:</label> <input type="text"
+				id="amount" readonly>
+		</p>
+		<div id="slider-range" class="mtb_20"></div>
+		<div class="list-group">
+			<div class="list-group-item mb_10">
+				<label>Color</label>
+				<div id="filter-group1">
+					<div class="checkbox">
+						<label> <input value="" type="checkbox"> Red (10)
+						</label>
+					</div>
+					<div class="checkbox">
+						<label> <input value="" type="checkbox"> Green
+							(06)
+						</label>
+					</div>
+					<div class="checkbox ">
+						<label> <input value="" type="checkbox"> Blue(09)
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="list-group-item mb_10">
+				<label>Size</label>
+				<div id="filter-group3">
+					<div class="checkbox">
+						<label> <input value="" type="checkbox"> Big (3)
+						</label>
+					</div>
+					<div class="checkbox">
+						<label> <input value="" type="checkbox"> Medium
+							(2)
+						</label>
+					</div>
+					<div class="checkbox">
+						<label> <input value="" type="checkbox"> Small (1)
+						</label>
+					</div>
+				</div>
+			</div>
+			<button type="button" class="btn">Refine Search</button>
+		</div>
+	</div>
+</div>
+<div class="left_banner left-sidebar-widget mb_50">
+	<a href="#"><img src="/assets/images/left1.jpg" alt="Left Banner"
+		class="img-responsive" /></a>
+</div>
+

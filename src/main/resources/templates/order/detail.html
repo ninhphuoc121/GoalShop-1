@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layout/index :: dynamic(~{::main})}">
+
+
+<body>
+    <main th:object="${order}" class="">
+        
+           <div class="panel panel-primary ">
+                <div class="heading-part">
+			<h2 class="main_title text-center">Thông tin đơn hàng</h2>
+		</div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="form-group col-sm-4">
+                            <div>Order Number</div>
+                            <input th:field="*{Order_id}" class="form-control" readonly>
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <div>Purchaser:</div>
+                            <input th:field="*{account.Username}" class="form-control" readonly>
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <div>Email::</div>
+                            <input th:field="*{account.Email}" class="form-control" readonly>
+                        </div>
+                         <div class="form-group col-sm-4">
+                            <div>Purchase Date :</div>
+                            <input th:field="*{CreateDate}" class="form-control" readonly>
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <div>Phone number :</div>
+                            <input th:field="*{Phone}" class="form-control" readonly>
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <div>Status :</div>
+                            <div th:if="*{Status}==0" class="form-control" style="color: blue;" >Đang xử lý</div>
+                            <div th:if="*{Status}==1" class="form-control"  >Đang giao hàng</div>
+                            <div th:if="*{Status}==2" class="form-control"  >Đã hoàn thành</div>
+                            <div th:if="*{Status}==-1" class="form-control"  >Đã huỷ hàng</div>
+                       
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-sm-12">
+                            <div>Shipping Address:</div>
+                            <textarea th:field="*{Address}" class="form-control" readonly></textarea>
+                        </div>
+                    </div>
+                </div>
+           </div>
+			 <div class="panel panel-primary">
+                <div class="panel-heading"> <strong>Sản phẩm của đơn hàng</strong></div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Mã sản phẩm</th>
+                            <th>Tên sản phẩm</th>
+                           
+                            <th>Hình ảnh</th>
+                             <th>Khuyến mãi</th>
+                            <th>Giá</th>
+                            <th>Số lượng</th>
+                            <th>Tổng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr  th:each="detail : *{orderDetails}" th:object="${detail}">
+                            <td>[[*{product.Product_id}]]</td>
+                            <td>[[*{product.Name}]]</td>
+                            
+                             <td><img  th:src="@{|/assets/images/${detail.product.Image1}|}" 
+                            style="width: 100px; height: 100px;"></td>
+                            <td>[[*{product.Distcount}]]%</td>
+                            <td>$[[*{#numbers.formatDecimal(Price , 0 , 'COMMA',2,'POINT')}]]</td>
+                            <td>[[*{Quantity}]]</td>
+                            <td>$[[*{#numbers.formatDecimal(Price * Quantity-(Price * Quantity *product.Distcount/100) , 0 , 'COMMA',2,'POINT')}]]</td>
+                            
+                        </tr>
+                    </tbody>
+                </table>
+           </div>
+          
+        </main>
+
+</body>
+
+</html>

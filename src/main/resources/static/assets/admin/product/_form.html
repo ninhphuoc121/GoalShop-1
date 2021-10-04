@@ -1,0 +1,143 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Product Editer
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-sm-4 text-center">
+            
+            	<div class=" col-sm-6">
+                <label for="image1">Ảnh 1:
+					<img ng-src="{{'/assets/images/' + form.image1}}" style="max-width: 100px; height: 100px;">
+				</label></div>
+				<div class=" col-sm-6">
+				<label for="image2">Ảnh 2:
+					<img ng-src="{{'/assets/images/' + form.image2}}"style="max-width: 100px; height: 100px;" >
+				</label></div>
+				<div class=" col-sm-6">
+				 <label for="image3">Ảnh 3:
+					<img ng-src="{{'/assets/images/' + form.image3}}" style="max-width: 100px; height: 100px;">
+				</label></div>
+				<div class=" col-sm-6">
+				<label for="image4">Ảnh 4:
+					<img ng-src="{{'/assets/images/' + form.image4}}"style="max-width: 100px; height: 100px;" >
+				</label></div>
+				<div class=" col-sm-6">
+				 <label for="image5">Ảnh 5:
+					<img ng-src="{{'/assets/images/' + form.image5}}" style="max-width: 100px; height: 100px;">
+				</label></div>
+				<div class=" col-sm-6">
+				<label for="image6">Ảnh 6:
+					<img ng-src="{{'/assets/images/' + form.image6}}"style="max-width: 100px; height: 100px;" >
+				</label></div>
+				<div class=" col-sm-6">
+				<label for="image7">Ảnh 7:
+					<img ng-src="{{'/assets/images/' + form.image7}}"style="max-width: 100px; height: 100px;" >
+				</label></div>
+				
+            </div>
+            <div class="col-sm-8">
+                <div class="row">
+                    <div class="form-group col-sm-6">
+                        <div>Tên sản phẩm</div>
+                        <input ng-model="form.name" class="form-control">
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <div>Giá</div>
+                        <input ng-model="form.unit_price" class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                     <div class="form-group col-sm-6">
+                        <div>Hình ảnh 2:</div>
+                         <input ng-model="form.image1"  class="form-control">
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <div>Hình ảnh 2:</div>
+                         <input ng-model="form.image2"  class="form-control">
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <div>Hình ảnh 3:</div>
+                         <input ng-model="form.image3"  class="form-control">
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <div>Hình ảnh 4:</div>
+                         <input ng-model="form.image4"  class="form-control">
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <div>Hình ảnh 5:</div>
+                         <input ng-model="form.image5"  class="form-control">
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <div>Hình ảnh 6:</div>
+                         <input ng-model="form.image6"  class="form-control">
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <div>Hình ảnh 7:</div>
+                         <input ng-model="form.image7"  class="form-control">
+                    </div>
+                     <div class="form-group col-sm-3">
+                        <div>Loại sản phẩm</div>
+                        <select ng-model="form.category.category_id" class="form-group">
+							<option ng-repeat="c in cates" ng-value="c.category_id">{{c.name}}</option>
+						</select>
+                    </div>
+                    <div class="form-group col-sm-3">
+                        <div>Số lượng</div>
+                       <input ng-model="form.quantity"  class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-sm-6">
+                        <div>Ngày nhập</div>
+                        <input ng-model="form.product_date" type="date" class="form-control">
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <div>Sản phẩm đặc biệt</div>
+                        <div class="form-control">
+                            <label class="radio-inline">
+								<input ng-model="form.special" ng-value="true" name="special" type="radio">Yes
+							</label>
+                            <label class="radio-inline">
+								<input ng-model="form.special" ng-value="false" name="special" type="radio">No
+							</label>
+                        </div>
+
+                    </div>
+                   
+                </div>
+                <div class="row">
+                    <div class="form-group col-sm-6">
+                        <div>Khuyến mãi</div>
+                        <input ng-model="form.distcount" class="form-control">
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <div>Sản phẩm mới</div>
+                        <div class="form-control">
+                            <label class="radio-inline">
+								<input ng-model="form.lastest" ng-value="true" name="lastest" type="radio">Yes
+							</label>
+                            <label class="radio-inline">
+								<input ng-model="form.lastest" ng-value="false" name="lastest" type="radio">No
+							</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-footer text-center">
+        <button ng-click="create()" class="btn btn-primary">
+			<b class="glyphicon glyphicon-plus"></b>Create
+		</button>
+        <button ng-click="update()" class="btn btn-success">
+			<b class="glyphicon glyphicon-save"></b>Update
+		</button>
+        <button ng-click="delete(form)" class="btn btn-danger">
+			<b class="glyphicon glyphicon-trash"></b>Delete
+		</button>
+        <button ng-click="reset()" class="btn btn-info">
+			<b class="glyphicon glyphicon-refresh"></b>Reset
+		</button>
+    </div>
+</div>
